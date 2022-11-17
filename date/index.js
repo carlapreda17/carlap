@@ -27,9 +27,10 @@ async function seedDB() {
                 author:"6375d225075f257bd893fa08",
                 location: `${cities[random1000].city}, ${cities[random1000].state}`, //luam elementele de pe pozitia nr extras
                 title: `${sample(descriptors)} ${sample(places)}`,
-                image:'https://images.unsplash.com/photo-1518602164578-cd0074062767?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw0ODMyNTF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+                
                 description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eaque, mollitia quis, doloremque aliquam neque sunt consequatur vero officia provident saepe ipsum facilis esse blanditiis dolorum unde aut? Maxime, nobis!',
-                price:price
+                price:price,
+               
 
             })
             await camp.save(); //salveaza

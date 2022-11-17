@@ -12,8 +12,9 @@ module.exports.renderNewForm= async (req, res) => {
 
 module.exports.CreateCampground= async function(req,res,next){
     // if (!req.body.campground) throw new ExpressError('Invalid Campground Data', 400);
-        
          const campground=new Campground(req.body.campground);
+         campground.images = req.files.map(f => ({ url: f.path, filename: f.filename })); //daca fac un vector va contine adresa url a fiecarei poze si path ul, le adaugam in campground
+        console.log(req.body,req.files);
          campground.author = req.user._id; //salveaza in autor id ul
          await campground.save();
          req.flash('success','Successfully made a new campground')
