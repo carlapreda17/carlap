@@ -9,6 +9,10 @@ const CampgroundSchema = new Schema({
     price: Number,
     description: String,
     location: String,
+    author:[{  //face legatura cu users 
+        type:Schema.Types.ObjectId,
+        ref:"User"
+}],
     reviews:[{  //face legatura cu reviews pt fiecare camprgound va fi un review
             type:Schema.Types.ObjectId,
             ref:"Review"
