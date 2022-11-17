@@ -58,15 +58,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser()) //how to store a user in a session
 passport.deserializeUser(User.deserializeUser()) //how to get a user out of a sesion
 
-const validateReview = (req, res, next) => {
-    const { error } = reviewSchema.validate(req.body);
-    if (error) {
-        const msg = error.details.map(el => el.message).join(',')
-        throw new ExpressError(msg, 400)
-    } else {
-        next();
-    }
-}
+
 //pt flash
 app.use((req, res, next) => {
     res.locals.currentUser=req.user;
