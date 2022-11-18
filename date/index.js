@@ -30,6 +30,14 @@ async function seedDB() {
                 
                 description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eaque, mollitia quis, doloremque aliquam neque sunt consequatur vero officia provident saepe ipsum facilis esse blanditiis dolorum unde aut? Maxime, nobis!',
                 price:price,
+                images:[{
+                    url: 'https://res.cloudinary.com/dnaeinjce/image/upload/v1668774213/YelpCamp/c67mtdc5poweharj20nk.jpg',
+                    filename: 'YelpCamp/c67mtdc5poweharj20nk'
+                },
+                {
+                   url: 'https://res.cloudinary.com/dnaeinjce/image/upload/v1668774213/YelpCamp/rsikpemjr58udeamgkf9.jpg',
+                    filename: 'YelpCamp/rsikpemjr58udeamgkf9'
+                }]
                
 
             })

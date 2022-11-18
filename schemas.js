@@ -1,5 +1,6 @@
-
+//joi The most powerful schema description language and data validator for JavaScript.
 const Joi = require('joi');
+const { number } = require('joi');
 
 module.exports.campgroundSchema = Joi.object({
     campground: Joi.object({
@@ -8,12 +9,13 @@ module.exports.campgroundSchema = Joi.object({
         //image: Joi.string().required(),
         location: Joi.string().required(),
         description: Joi.string().required()
-    }).required()
+    }).required(),
+    deleteImages: Joi.array()
 });
 
 module.exports.reviewSchema = Joi.object({
         review: Joi.object({
             rating:Joi.number().required(),
             body:Joi.string().required()
-        })
+        }).required()
 });
