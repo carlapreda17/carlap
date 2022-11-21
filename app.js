@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config(); //apeleaza .env
 }
-
+//require('dotenv').config();
 const express= require('express');
 const path=require ('path');
 const mongoose=require('mongoose');
@@ -20,6 +20,7 @@ const passport=require('passport');
 const LocalStrategy=require('passport-local');
 const User=require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
+const helmet=require("helmet");
 
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {
     useNewUrlParser: true,
@@ -47,11 +48,12 @@ app.use(mongoSanitize({
 }))
 
 const sessionConfig={
+    name:"proiect",
     secret: 'worstsecret',
     resave:false,
     saveUninitialized:true,
     cookie:{
-        httpOnly:true,
+        httpOnly:true, //cookie urile sunt accesibile doar prin http
         expires: Date.now()+1000*60*60*24*7,    //data de azi transformata din milisecunde
         maxAge:1000*60*60*24*7
     }
@@ -59,7 +61,7 @@ const sessionConfig={
 }
 app.use(session(sessionConfig))
 app.use(flash());
-//passport
+
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
