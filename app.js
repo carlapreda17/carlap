@@ -125,10 +125,14 @@ app.use(function(err,req,res,next){
     res.status(statusCode).render('error',{err});
 })
 
+
 // alegem portul
-app.listen(3000,function(){ 
-    console.log("Serving on port 3000");
+const port = process.env.PORT || 3000;
+console.log(port);
+app.listen(port, () => {
+    console.log(`Serving on port ${port}`)
 })
+
 
 
 //pagina unde se afiseaza datele
@@ -137,3 +141,4 @@ app.listen(3000,function(){
     await camp.save() //salvam in baza de date
     res.send(camp) //daca merge afisam
 })*/
+
